@@ -1,3 +1,4 @@
+"use client";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -8,8 +9,14 @@ import TeamSwiper from "./components/TeamSwiper";
 import { SpeedDial, SpeedDialAction, SpeedDialIcon } from "@mui/material";
 import LoginIcon from "@mui/icons-material/Login";
 import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import AOS CSS
+import { useEffect } from "react";
 
 export default function Home() {
+	useEffect(() => {
+		AOS.init(); // Initialize AOS library
+	}, []);
 	return (
 		<main className="landingPage">
 			<AppBar position="fixed" className="nav green-bg">
@@ -25,7 +32,7 @@ export default function Home() {
 			<div className="mt-5 pt-5">
 				<HeroSection />
 			</div>
-			<div className="landingVideo">
+			<div className="landingVideo" data-aos="fade-up" data-aos-duration="700">
 				<video
 					width="320"
 					height="750"
@@ -41,8 +48,12 @@ export default function Home() {
 				</video>
 			</div>
 			<div className="vh-100 d-flex justify-content-center align-items-center flex-column finalWords">
-				<h1>قــــــــاطِع</h1>
-				<h1>Boycott!</h1>
+				<h1 data-aos="fade-up" data-aos-duration="700">
+					قــــــــاطِع
+				</h1>
+				<h1 data-aos="fade-up" data-aos-duration="700" data-aos-delay="300">
+					Boycott!
+				</h1>
 			</div>
 			<TeamSwiper />
 			<SpeedDial
@@ -55,13 +66,17 @@ export default function Home() {
 					key={"login"}
 					icon={<LoginIcon />}
 					tooltipTitle={"Login"}
-					onClick={() => {}}
+					onClick={() => {
+						console.log("test");
+					}}
 				/>
 				<SpeedDialAction
 					key={"register"}
 					icon={<PersonAddAltIcon />}
 					tooltipTitle={"Register"}
-					onClick={() => {}}
+					onClick={() => {
+						console.log("test");
+					}}
 				/>
 			</SpeedDial>
 		</main>

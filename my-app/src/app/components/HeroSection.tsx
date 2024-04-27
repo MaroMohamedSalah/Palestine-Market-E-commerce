@@ -13,6 +13,8 @@ const HeroSection = () => {
 							height={600}
 							alt="img"
 							className="rounded img-fluid"
+							data-aos="fade-right"
+							data-aos-duration="700"
 						/>
 					</div>
 					<div className="col-12 col-md-6 text d-flex justify-content-between flex-column">
@@ -21,16 +23,19 @@ const HeroSection = () => {
 							subTitle="Shop Ethically, Support Locally"
 							p="Explore ethical products, support Palestinian artisans, and make
 								a meaningful impact with every purchase at Palestine Market."
+							animationDelay={0}
 						/>
 						<SideCollectionText
 							title="Choose Your Path"
 							subTitle="Support Palestine, Say No to Boycotts"
 							p="Take a stand for Palestine by shopping ethically. Reject boycott products and empower Palestinian artisans with every purchase at Palestine Market."
+							animationDelay={300}
 						/>
 						<SideCollectionText
 							title="Stand Strong"
 							subTitle="Egyptian Students Supporting Palestine"
 							p="oin us, Egyptian students standing in solidarity with Palestine. Explore our platform, where every purchase supports Palestinian artisans and their livelihoods."
+							animationDelay={600}
 						/>
 					</div>
 				</div>
