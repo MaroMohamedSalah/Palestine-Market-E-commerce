@@ -91,3 +91,10 @@ h1 {
 .TeamSwiper .imageContainer:hover .nameHolder {
 	bottom: 0;
 }
+
+.MuiFab-root {
+	background-color: var(--green);
+}
+.MuiFab-root:hover {
+	background-color: var(--red);
+}

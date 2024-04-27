@@ -5,6 +5,9 @@ import Button from "@mui/material/Button";
 import Link from "next/link";
 import HeroSection from "./components/HeroSection";
 import TeamSwiper from "./components/TeamSwiper";
+import { SpeedDial, SpeedDialAction, SpeedDialIcon } from "@mui/material";
+import LoginIcon from "@mui/icons-material/Login";
+import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
 
 export default function Home() {
 	return (
@@ -42,6 +45,25 @@ export default function Home() {
 				<h1>Boycott!</h1>
 			</div>
 			<TeamSwiper />
+			<SpeedDial
+				ariaLabel="SpeedDial basic example"
+				sx={{ position: "absolute", bottom: 16, right: 16 }}
+				icon={<SpeedDialIcon />}
+				className="position-fixed"
+			>
+				<SpeedDialAction
+					key={"login"}
+					icon={<LoginIcon />}
+					tooltipTitle={"Login"}
+					onClick={() => {}}
+				/>
+				<SpeedDialAction
+					key={"register"}
+					icon={<PersonAddAltIcon />}
+					tooltipTitle={"Register"}
+					onClick={() => {}}
+				/>
+			</SpeedDial>
 		</main>
 	);
 }
