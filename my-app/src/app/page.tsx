@@ -2,7 +2,6 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import Image from "next/image";
 import Link from "next/link";
 import HeroSection from "./components/HeroSection";
 
@@ -21,6 +20,25 @@ export default function Home() {
 			</AppBar>
 			<div className="mt-5 pt-5">
 				<HeroSection />
+			</div>
+			<div className="landingVideo">
+				<video
+					width="320"
+					height="750"
+					preload="none"
+					autoPlay={true}
+					playsInline
+					loop
+					muted
+					className="w-100"
+				>
+					<source src={"/assets/video1.mp4"} type="video/mp4" />
+					Your browser does not support the video tag.
+				</video>
+			</div>
+			<div className="vh-100 d-flex justify-content-center align-items-center flex-column finalWords">
+				<h1>قــــــــاطِع</h1>
+				<h1>Boycott!</h1>
 			</div>
 		</main>
 	);

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import img from "../assets/img1.jpeg";
 import SideCollectionText from "./SideCollectionText";
 
 const HeroSection = () => {
@@ -9,7 +8,7 @@ const HeroSection = () => {
 				<div className="row">
 					<div className="col-12 col-md-6 image">
 						<Image
-							src={img}
+							src={"/assets/img1.jpeg"}
 							width={600}
 							height={600}
 							alt="img"
