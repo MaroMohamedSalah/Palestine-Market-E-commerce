@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Link from "next/link";
 import HeroSection from "./components/HeroSection";
+import TeamSwiper from "./components/TeamSwiper";
 
 export default function Home() {
 	return (
@@ -40,6 +41,7 @@ export default function Home() {
 				<h1>قــــــــاطِع</h1>
 				<h1>Boycott!</h1>
 			</div>
+			<TeamSwiper />
 		</main>
 	);
 }

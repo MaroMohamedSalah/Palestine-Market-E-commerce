@@ -60,3 +60,34 @@ h1 {
 .finalWords h1 {
 	font-size: 4rem;
 }
+
+.imageContainer {
+	width: 100%;
+	height: 416px;
+	overflow: hidden;
+}
+
+.swiper-pagination-bullet {
+	background-color: var(--green) !important;
+}
+
+.TeamSwiper .swiper {
+	min-height: 500px;
+}
+
+.TeamSwiper .imageContainer .nameHolder {
+	bottom: -100%;
+	left: 0;
+	background-color: var(--black);
+	transition: all 0.5s ease-in-out;
+}
+.TeamSwiper .imageContainer img {
+	transition: all 0.5s ease-in-out;
+}
+.TeamSwiper .imageContainer:hover img {
+	scale: 1.3;
+	filter: blur(3px);
+}
+.TeamSwiper .imageContainer:hover .nameHolder {
+	bottom: 0;
+}
