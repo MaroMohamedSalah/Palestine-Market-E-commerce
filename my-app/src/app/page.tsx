@@ -19,7 +19,6 @@ export default function Home() {
 	const router = useRouter();
 	useEffect(() => {
 		AOS.init(); // Initialize AOS library
-		console.log(isLoggedIn());
 	}, []);
 	return (
 		<main className="landingPage">

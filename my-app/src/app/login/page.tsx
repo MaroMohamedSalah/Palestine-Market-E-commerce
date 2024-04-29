@@ -16,6 +16,7 @@ import { useState } from "react";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import LoadingButton from "@mui/lab/LoadingButton";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
 	const [showPassword, setShowPassword] = useState(false);
@@ -23,6 +24,7 @@ const Login = () => {
 	const [password, setPassword] = useState("");
 	const [errorMsg, setErrorMsg] = useState("");
 	const [loading, setLoading] = useState(false);
+	const router = useRouter();
 
 	const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -56,6 +58,7 @@ const Login = () => {
 					if (data.token) {
 						localStorage.setItem("token", data.token);
 						setErrorMsg("");
+						router.push("/products");
 					} else {
 						setErrorMsg(data);
 					}
