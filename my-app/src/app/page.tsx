@@ -13,11 +13,13 @@ import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS CSS
 import { useEffect } from "react";
 import { redirect, useRouter } from "next/navigation";
+import { isLoggedIn } from "./services/authService";
 
 export default function Home() {
 	const router = useRouter();
 	useEffect(() => {
 		AOS.init(); // Initialize AOS library
+		console.log(isLoggedIn());
 	}, []);
 	return (
 		<main className="landingPage">
