@@ -1,0 +1,6 @@
+.Mui-focused {
+	color: var(--white) !important;
+}
+.Mui-focused::after {
+	border-bottom-color: var(--white) !important;
+}

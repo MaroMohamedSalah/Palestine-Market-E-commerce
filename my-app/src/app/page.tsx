@@ -12,8 +12,10 @@ import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS CSS
 import { useEffect } from "react";
+import { redirect, useRouter } from "next/navigation";
 
 export default function Home() {
+	const router = useRouter();
 	useEffect(() => {
 		AOS.init(); // Initialize AOS library
 	}, []);
@@ -24,7 +26,7 @@ export default function Home() {
 					<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
 						Palestine Market E-commerce
 					</Typography>
-					<Link href={"#"}>
+					<Link href={"/login"}>
 						<Button color="inherit">Login</Button>
 					</Link>
 				</Toolbar>
@@ -67,7 +69,7 @@ export default function Home() {
 					icon={<LoginIcon />}
 					tooltipTitle={"Login"}
 					onClick={() => {
-						console.log("test");
+						router.push("/login");
 					}}
 				/>
 				<SpeedDialAction
