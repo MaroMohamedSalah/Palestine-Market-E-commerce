@@ -11,7 +11,11 @@ const CelebrationAnimation = () => {
 		setIsPaused(true);
 	};
 	return (
-		<div className={`CelebrationAnimation ${isStopped ? "d-none" : ""}`}>
+		<div
+			className={`CelebrationAnimation position-absolute top-0 left-0 z-1 w-100 d-flex justify-content-center ${
+				isStopped ? "d-none" : ""
+			}`}
+		>
 			<Lottie
 				options={{
 					loop: false,
