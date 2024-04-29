@@ -12,10 +12,12 @@ const TeamSwiper = () => {
 		{ url: "/assets/team_imgs/Shawqy_Hussien.jpg", name: "Shawqy Hussien" },
 		{ url: "/assets/team_imgs/Manar_Mostafa.jpg", name: "Manar Mostafa" },
 		{ url: "/assets/team_imgs/Marwan.jpg", name: "Marwan Mohamed" },
+		{ url: "/assets/team_imgs/Nada.jpg", name: "Nada Essam" },
 	];
 	return (
 		<section className="TeamSwiper py-5">
 			<div className="container">
+				<h1 className="mb-3">Our Team</h1>
 				<Swiper
 					navigation
 					freeMode={true}
