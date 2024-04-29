@@ -4,3 +4,13 @@
 .Mui-focused::after {
 	border-bottom-color: var(--white) !important;
 }
+.Login .error {
+	transition: all 0.5s ease-in-out;
+	opacity: 0;
+}
+.Login .MuiLoadingButton-loading {
+	background-color: var(--red);
+}
+.Login .MuiLoadingButton-loading span {
+	color: white;
+}
