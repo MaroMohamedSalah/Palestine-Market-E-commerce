@@ -3,10 +3,16 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 // Define the interface for a product
 interface Product {
-	id: string;
-	name: string;
+	id: number;
+	title: string;
 	price: number;
-	// Add other product properties as needed
+	description: string;
+	category: string;
+	image: string;
+	rating: {
+		rate: number;
+		count: number;
+	};
 }
 
 // Define the initial state for products
@@ -21,12 +27,15 @@ const productsSlice = createSlice({
 		addProduct: (state, action: PayloadAction<Product>) => {
 			state.push(action.payload);
 		},
-		// Add other reducer functions here as needed
+		initProducts: (state, action: PayloadAction<Product[]>) => {
+			// Replace the current state with the array of products from the action payload
+			return action.payload;
+		},
 	},
 });
 
 // Export actions from the slice
-export const { addProduct } = productsSlice.actions;
+export const { addProduct, initProducts } = productsSlice.actions;
 
 // Export the reducer
 export default productsSlice.reducer;

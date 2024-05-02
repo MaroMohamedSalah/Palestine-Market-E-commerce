@@ -1,0 +1,14 @@
+.Products .ProductsList .productImg {
+	height: 200px;
+}
+.Products .ProductsList .title,
+.Products .ProductsList .rating .rate {
+	font-size: 16px;
+}
+.Products .ProductsList .description,
+.Products .ProductsList .rating .count {
+	font-size: 13px;
+}
+.Products .ProductsList .product .MuiRating-iconEmpty {
+	color: var(--green);
+}

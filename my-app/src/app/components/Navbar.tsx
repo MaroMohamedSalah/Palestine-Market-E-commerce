@@ -10,7 +10,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import FlagAnimation from "./FlagAnimation";
 import { Badge, Drawer } from "@mui/material";
 import LocalMallIcon from "@mui/icons-material/LocalMall";

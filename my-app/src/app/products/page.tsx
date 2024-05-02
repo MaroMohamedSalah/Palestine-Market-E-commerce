@@ -7,7 +7,12 @@ import { isLoggedIn } from "../services/authService";
 import { useRouter } from "next/navigation";
 import { Button } from "@mui/material";
 import { useAppDispatch } from "../lib/hooks";
-import { addProduct } from "../lib/features/products/productsSlice";
+import "./products.css";
+import {
+	addProduct,
+	initProducts,
+} from "../lib/features/products/productsSlice";
+import ProductsList from "./ProductsList";
 
 const Products = () => {
 	const dispatch = useAppDispatch();
@@ -19,9 +24,17 @@ const Products = () => {
 		}
 	}, [loggedIn, router]);
 
-	const handleAddProduct = () => {
-		const product = { name: "test", id: "5", price: 5 }; // Define the new product
-		dispatch(addProduct(product)); // Dispatch the addProduct action with the new product
+	useEffect(() => {
+		handleFetchProducts();
+	}, []);
+
+	const handleFetchProducts = () => {
+		fetch("https://fakestoreapi.com/products")
+			.then((res) => res.json())
+			.then((data) => {
+				dispatch(initProducts(data));
+			})
+			.catch((error) => console.error(error));
 	};
 
 	return (
@@ -29,7 +42,7 @@ const Products = () => {
 			<CelebrationAnimation />
 			<Navbar />
 			<div className="container">
-				{/* <Button onClick={() => handleAddProduct()}>Add product</Button> */}
+				<ProductsList category="women's clothing" />
 			</div>
 		</div>
 	);
