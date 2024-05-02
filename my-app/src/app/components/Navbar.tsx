@@ -10,10 +10,11 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FlagAnimation from "./FlagAnimation";
 import { Badge, Drawer } from "@mui/material";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
+import { useAppSelector, useAppStore } from "../lib/hooks";
 
 const pages = [];
 const settings = ["Profile", "Issues", "Orders", "Logout"];
@@ -21,6 +22,7 @@ const settings = ["Profile", "Issues", "Orders", "Logout"];
 const Navbar = () => {
 	const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 	const [openCart, setOpenCart] = useState(false);
+	const cartProducts = useAppSelector((state) => state.rootReducer.products);
 
 	const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
 		setAnchorElUser(event.currentTarget);
@@ -52,7 +54,7 @@ const Navbar = () => {
 						className="white-color me-3"
 						size="large"
 					>
-						<Badge badgeContent={4}>
+						<Badge badgeContent={cartProducts.length}>
 							<LocalMallIcon />
 						</Badge>
 					</IconButton>
