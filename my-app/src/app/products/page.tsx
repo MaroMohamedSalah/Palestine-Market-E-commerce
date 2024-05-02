@@ -5,19 +5,18 @@ import CelebrationAnimation from "../components/CelebrationAnimation";
 import Navbar from "../components/Navbar";
 import { isLoggedIn } from "../services/authService";
 import { useRouter } from "next/navigation";
-import { Button } from "@mui/material";
 import { useAppDispatch } from "../lib/hooks";
 import "./products.css";
-import {
-	addProduct,
-	initProducts,
-} from "../lib/features/products/productsSlice";
+import { initProducts } from "../lib/features/products/productsSlice";
 import ProductsList from "./ProductsList";
+import CategorySwitch from "./CategorySwitch";
 
 const Products = () => {
 	const dispatch = useAppDispatch();
 	const loggedIn = isLoggedIn();
 	const router = useRouter();
+
+	const [selectedCategory, setSelectedCategory] = useState("");
 	useEffect(() => {
 		if (!loggedIn) {
 			router.push("/login");
@@ -42,7 +41,11 @@ const Products = () => {
 			<CelebrationAnimation />
 			<Navbar />
 			<div className="container">
-				<ProductsList category="women's clothing" />
+				<CategorySwitch
+					selectedCategory={selectedCategory}
+					setSelectedCategory={setSelectedCategory}
+				/>
+				<ProductsList category={selectedCategory} />
 			</div>
 		</div>
 	);

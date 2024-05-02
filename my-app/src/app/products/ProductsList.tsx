@@ -34,12 +34,7 @@ const ProductsList: React.FC<ProductsListProps> = ({ category }) => {
 						</p>
 						<div className="rating d-flex justify-content-start align-items-center">
 							<h5 className="rate mb-0 me-2 green-color fw-bold">Rate</h5>
-							<Rating
-								name="read-only"
-								// className="green-color"
-								value={p.rating.rate}
-								readOnly
-							/>
+							<Rating name="read-only" value={p.rating.rate} readOnly />
 							<h6 className="count ps-2 mb-0 text-white-50">
 								({p.rating.count})
 							</h6>
