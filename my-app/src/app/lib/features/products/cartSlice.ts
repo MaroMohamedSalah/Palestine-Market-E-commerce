@@ -45,10 +45,35 @@ const cartSlice = createSlice({
 		handleOpenCloseCart: (state) => {
 			state.isCartOpen = !state.isCartOpen;
 		},
+
+		deleteProduct: (state, action: PayloadAction<ProductInCart>) => {
+			state.products = state.products.filter(
+				(product) =>
+					product.productDetails.id !== action.payload.productDetails.id
+			);
+		},
+
+		editQuantity: (
+			state,
+			action: PayloadAction<{ productId: number; quantity: number }>
+		) => {
+			const { productId, quantity } = action.payload;
+			const productIndex = state.products.findIndex(
+				(product) => product.productDetails.id === productId
+			);
+			if (productIndex !== -1) {
+				state.products[productIndex].quantity = quantity;
+			}
+		},
 	},
 });
 
-export const { addProductToCart, clearCart, handleOpenCloseCart } =
-	cartSlice.actions;
+export const {
+	addProductToCart,
+	clearCart,
+	handleOpenCloseCart,
+	deleteProduct,
+	editQuantity,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;
