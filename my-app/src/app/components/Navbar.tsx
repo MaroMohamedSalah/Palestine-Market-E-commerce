@@ -52,10 +52,11 @@ const Navbar = () => {
 						onClick={handleOpenCart}
 						aria-label="cart"
 						className="white-color me-3"
-						size="large"
+						size="medium"
 					>
 						<Badge badgeContent={cartProducts.length}>
-							<LocalMallIcon />
+							{/* <LocalMallIcon /> */}
+							🍉
 						</Badge>
 					</IconButton>
 

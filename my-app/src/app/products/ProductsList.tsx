@@ -4,17 +4,21 @@ import { useAppSelector } from "../lib/hooks";
 import Image from "next/image";
 import { Button, Rating } from "@mui/material";
 interface ProductsListProps {
-	category?: string;
+	category?: string | null;
 }
 
 const ProductsList: React.FC<ProductsListProps> = ({ category }) => {
 	// const [filteredProducts, setFilteredProducts] = useState([]);
 	const Products = useAppSelector((state) => state.rootReducer.products);
+	const filteredProducts =
+		category === null || category === "all"
+			? Products
+			: Products.filter((p) => p.category === category);
 
 	return (
 		<div className="ProductsList py-3">
 			<div className="row">
-				{Products.filter((p) => p.category == category).map((p) => (
+				{filteredProducts.map((p) => (
 					<div
 						className="product col-md-4 col-12 d-flex justify-content-center align-items-center flex-column"
 						key={p.id}

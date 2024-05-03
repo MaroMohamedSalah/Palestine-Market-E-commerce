@@ -2,7 +2,7 @@ import { Button, ButtonGroup } from "@mui/material";
 import { useAppSelector } from "../lib/hooks";
 interface CategorySwitchProps {
 	setSelectedCategory: Function;
-	selectedCategory: string;
+	selectedCategory?: string | null;
 }
 const CategorySwitch: React.FC<CategorySwitchProps> = ({
 	setSelectedCategory,
@@ -33,6 +33,7 @@ const CategorySwitch: React.FC<CategorySwitchProps> = ({
 						{c}
 					</Button>
 				))}
+				<Button onClick={() => setSelectedCategory("all")}>All</Button>
 			</ButtonGroup>
 		</div>
 	);

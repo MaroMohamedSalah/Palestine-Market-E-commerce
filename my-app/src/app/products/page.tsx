@@ -16,7 +16,7 @@ const Products = () => {
 	const loggedIn = isLoggedIn();
 	const router = useRouter();
 
-	const [selectedCategory, setSelectedCategory] = useState("");
+	const [selectedCategory, setSelectedCategory] = useState(null);
 	useEffect(() => {
 		if (!loggedIn) {
 			router.push("/login");
