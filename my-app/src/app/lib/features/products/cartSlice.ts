@@ -1,8 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Product } from "./productsSlice";
 
 export interface ProductInCart {
-	productId: number;
+	// productId: number;
 	quantity: number;
+	productDetails: Product;
 }
 
 interface Cart {
@@ -22,7 +24,8 @@ const cartSlice = createSlice({
 		addProductToCart: (state, action: PayloadAction<ProductInCart>) => {
 			// Check if the product already exists in the cart
 			const existingProductIndex = state.products.findIndex(
-				(product) => product.productId === action.payload.productId
+				(product) =>
+					product.productDetails.id === action.payload.productDetails.id
 			);
 
 			if (existingProductIndex !== -1) {

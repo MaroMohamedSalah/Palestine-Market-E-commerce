@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from "../lib/hooks";
 import Image from "next/image";
 import { Button, Rating } from "@mui/material";
 import { addProductToCart } from "../lib/features/products/cartSlice";
+import { Product } from "../lib/features/products/productsSlice";
 interface ProductsListProps {
 	category?: string | null;
 }
@@ -16,8 +17,8 @@ const ProductsList: React.FC<ProductsListProps> = ({ category }) => {
 			: Products.filter((p) => p.category === category);
 	const dispatch = useAppDispatch();
 
-	const handleAddProductToCart = (productId: number) => {
-		dispatch(addProductToCart({ productId: productId, quantity: 1 }));
+	const handleAddProductToCart = (product: Product) => {
+		dispatch(addProductToCart({ productDetails: product, quantity: 1 }));
 	};
 
 	return (
@@ -52,7 +53,7 @@ const ProductsList: React.FC<ProductsListProps> = ({ category }) => {
 							variant="contained"
 							size="small"
 							className="my-3 green-bg"
-							onClick={() => handleAddProductToCart(p.id)}
+							onClick={() => handleAddProductToCart(p)}
 						>
 							Add to cart
 						</Button>

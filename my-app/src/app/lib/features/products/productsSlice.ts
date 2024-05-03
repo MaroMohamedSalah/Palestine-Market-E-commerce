@@ -2,7 +2,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 // Define the interface for a product
-interface Product {
+export interface Product {
 	id: number;
 	title: string;
 	price: number;
@@ -16,7 +16,7 @@ interface Product {
 }
 
 // Define the initial state for products
-const initialState: Product[] = [];
+export const initialState: Product[] = [];
 
 // Create a slice for managing products
 const productsSlice = createSlice({

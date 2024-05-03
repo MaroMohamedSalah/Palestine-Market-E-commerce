@@ -10,6 +10,7 @@ import {
 	Drawer,
 	IconButton,
 	Toolbar,
+	Tooltip,
 } from "@mui/material";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -32,17 +33,19 @@ const Cart = () => {
 
 	return (
 		<div className="Cart">
-			<IconButton
-				onClick={handleOpenCart}
-				aria-label="cart"
-				className="white-color me-3"
-				size="medium"
-			>
-				<Badge badgeContent={cartProducts.length}>
-					{/* <LocalMallIcon /> */}
-					🍉
-				</Badge>
-			</IconButton>
+			<Tooltip title="Cart">
+				<IconButton
+					onClick={handleOpenCart}
+					aria-label="cart"
+					className="white-color me-3"
+					size="medium"
+				>
+					<Badge badgeContent={cartProducts.length}>
+						{/* <LocalMallIcon /> */}
+						🍉
+					</Badge>
+				</IconButton>
+			</Tooltip>
 			{/* <Drawer
 				className="cartDrawer"
 				open={openCart}

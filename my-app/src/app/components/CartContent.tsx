@@ -14,18 +14,30 @@ import {
 import CloseIcon from "@mui/icons-material/Close";
 import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
-import { forwardRef, useState } from "react";
+import { forwardRef } from "react";
 import { useAppDispatch, useAppSelector } from "../lib/hooks";
 import { handleOpenCloseCart } from "../lib/features/products/cartSlice";
+import EmptyCartAnimation from "./EmptyCartAnimation";
 
 const CartContent = () => {
 	const isCartOpen = useAppSelector(
 		(state) => state.rootReducer.cart.isCartOpen
 	);
+	const productsInCart = useAppSelector(
+		(state) => state.rootReducer.cart.products
+	);
 	const dispatch = useAppDispatch();
 
 	const handleOpenCart = () => {
 		dispatch(handleOpenCloseCart());
+	};
+
+	const getTotalCartPrice = () => {
+		let total = 0;
+		productsInCart.forEach((p) => {
+			total += p.quantity * p.productDetails.price;
+		});
+		return Math.round(total);
 	};
 
 	const Transition = forwardRef(function Transition(
@@ -56,25 +68,30 @@ const CartContent = () => {
 							<CloseIcon />
 						</IconButton>
 						<Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-							Sound
+							<span className="me-3">Your Cart 🍉</span>
+							{productsInCart.length !== 0 && (
+								<span className="text-black-50 fw-bold">
+									Items: {productsInCart.length}
+								</span>
+							)}
 						</Typography>
-						<Button autoFocus color="inherit" onClick={handleOpenCart}>
-							save
-						</Button>
+						<Typography variant="h6" component="div">
+							{productsInCart.length !== 0 ? (
+								`Total: ${getTotalCartPrice()} EGP`
+							) : (
+								<Button
+									className="black-color fw-bold"
+									onClick={() => handleOpenCart()}
+								>
+									continue shopping
+								</Button>
+							)}
+						</Typography>
 					</Toolbar>
 				</AppBar>
-				<List>
-					<ListItemButton>
-						<ListItemText primary="Phone ringtone" secondary="Titania" />
-					</ListItemButton>
-					<Divider />
-					<ListItemButton>
-						<ListItemText
-							primary="Default notification ringtone"
-							secondary="Tethys"
-						/>
-					</ListItemButton>
-				</List>
+				<div className="container">
+					{productsInCart.length === 0 ? <EmptyCartAnimation /> : <List></List>}
+				</div>
 			</Dialog>
 		</div>
 	);
