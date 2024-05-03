@@ -7,22 +7,17 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { useState } from "react";
 import FlagAnimation from "./FlagAnimation";
-import { Badge, Drawer } from "@mui/material";
-import LocalMallIcon from "@mui/icons-material/LocalMall";
-import { useAppSelector, useAppStore } from "../lib/hooks";
+import Cart from "./Cart";
 
 const pages = [];
 const settings = ["Profile", "Issues", "Orders", "Logout"];
 
 const Navbar = () => {
 	const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
-	const [openCart, setOpenCart] = useState(false);
-	const cartProducts = useAppSelector((state) => state.rootReducer.products);
 
 	const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
 		setAnchorElUser(event.currentTarget);
@@ -30,10 +25,6 @@ const Navbar = () => {
 
 	const handleCloseUserMenu = () => {
 		setAnchorElUser(null);
-	};
-
-	const handleOpenCart = () => {
-		setOpenCart(!openCart);
 	};
 	return (
 		<AppBar position="static">
@@ -48,17 +39,7 @@ const Navbar = () => {
 
 					<Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}></Box>
 
-					<IconButton
-						onClick={handleOpenCart}
-						aria-label="cart"
-						className="white-color me-3"
-						size="medium"
-					>
-						<Badge badgeContent={cartProducts.length}>
-							{/* <LocalMallIcon /> */}
-							🍉
-						</Badge>
-					</IconButton>
+					<Cart />
 
 					<Box sx={{ flexGrow: 0 }}>
 						<Tooltip title="Open settings">
@@ -89,12 +70,6 @@ const Navbar = () => {
 							))}
 						</Menu>
 					</Box>
-
-					<Drawer
-						open={openCart}
-						onClose={handleOpenCart}
-						anchor="right"
-					></Drawer>
 				</Toolbar>
 			</Container>
 		</AppBar>

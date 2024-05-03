@@ -1,8 +1,12 @@
 "use client";
 import { useState } from "react";
-import { useAppSelector } from "../lib/hooks";
+import { useAppDispatch, useAppSelector } from "../lib/hooks";
 import Image from "next/image";
 import { Button, Rating } from "@mui/material";
+import {
+	ProductInCart,
+	addProductToCart,
+} from "../lib/features/products/cartSlice";
 interface ProductsListProps {
 	category?: string | null;
 }
@@ -14,6 +18,11 @@ const ProductsList: React.FC<ProductsListProps> = ({ category }) => {
 		category === null || category === "all"
 			? Products
 			: Products.filter((p) => p.category === category);
+	const dispatch = useAppDispatch();
+
+	const handleAddProductToCart = (productId: number) => {
+		dispatch(addProductToCart({ productId: productId, quantity: 1 }));
+	};
 
 	return (
 		<div className="ProductsList py-3">
@@ -43,7 +52,12 @@ const ProductsList: React.FC<ProductsListProps> = ({ category }) => {
 								({p.rating.count})
 							</h6>
 						</div>
-						<Button variant="contained" size="small" className="my-3 green-bg">
+						<Button
+							variant="contained"
+							size="small"
+							className="my-3 green-bg"
+							onClick={() => handleAddProductToCart(p.id)}
+						>
 							Add to cart
 						</Button>
 					</div>
