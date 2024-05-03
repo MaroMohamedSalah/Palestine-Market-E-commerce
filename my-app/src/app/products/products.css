@@ -1,3 +1,6 @@
+.Products .ProductsList {
+	padding-top: 135px !important;
+}
 .Products .ProductsList .productImg {
 	height: 200px;
 }
@@ -13,6 +16,12 @@
 	color: var(--green);
 }
 
+.Products .CategorySwitch {
+	top: 64px;
+	left: 0;
+	position: fixed;
+	background-color: var(--black);
+}
 .Products .CategorySwitch .active {
 	transition: all 0.5s ease-in-out;
 	background-color: var(--green);

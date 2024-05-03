@@ -27,7 +27,7 @@ const Navbar = () => {
 		setAnchorElUser(null);
 	};
 	return (
-		<AppBar position="static">
+		<AppBar position="fixed">
 			<Container maxWidth="xl">
 				<Toolbar disableGutters>
 					<div className="me-3">

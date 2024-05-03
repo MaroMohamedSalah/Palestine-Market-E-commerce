@@ -18,7 +18,7 @@ const CategorySwitch: React.FC<CategorySwitchProps> = ({
 		}
 	});
 	return (
-		<div className="CategorySwitch my-3 d-flex justify-content-center align-items-center">
+		<div className="CategorySwitch z-2 w-100 m-0 py-3 d-flex justify-content-center align-items-center">
 			<ButtonGroup
 				size="large"
 				variant="outlined"
