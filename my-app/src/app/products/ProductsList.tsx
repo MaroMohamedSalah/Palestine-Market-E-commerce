@@ -3,16 +3,12 @@ import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../lib/hooks";
 import Image from "next/image";
 import { Button, Rating } from "@mui/material";
-import {
-	ProductInCart,
-	addProductToCart,
-} from "../lib/features/products/cartSlice";
+import { addProductToCart } from "../lib/features/products/cartSlice";
 interface ProductsListProps {
 	category?: string | null;
 }
 
 const ProductsList: React.FC<ProductsListProps> = ({ category }) => {
-	// const [filteredProducts, setFilteredProducts] = useState([]);
 	const Products = useAppSelector((state) => state.rootReducer.products);
 	const filteredProducts =
 		category === null || category === "all"

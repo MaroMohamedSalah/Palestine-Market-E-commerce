@@ -10,6 +10,7 @@ import "./products.css";
 import { initProducts } from "../lib/features/products/productsSlice";
 import ProductsList from "./ProductsList";
 import CategorySwitch from "./CategorySwitch";
+import CartContent from "../components/CartContent";
 
 const Products = () => {
 	const dispatch = useAppDispatch();
@@ -47,6 +48,7 @@ const Products = () => {
 				/>
 				<ProductsList category={selectedCategory} />
 			</div>
+			<CartContent />
 		</div>
 	);
 };

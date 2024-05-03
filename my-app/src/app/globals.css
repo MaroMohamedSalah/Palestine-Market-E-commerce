@@ -45,6 +45,7 @@ body {
 body {
 	color: var(--white);
 	background-color: var(--black);
+	padding: 0 !important;
 }
 
 a {

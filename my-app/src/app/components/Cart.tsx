@@ -1,17 +1,35 @@
 "use client";
-
-import { useState } from "react";
-import { useAppSelector } from "../lib/hooks";
-import { Badge, Drawer, IconButton } from "@mui/material";
+import "./cart.css";
+import { forwardRef, useState } from "react";
+import { useAppDispatch, useAppSelector } from "../lib/hooks";
+import {
+	AppBar,
+	Badge,
+	Button,
+	Dialog,
+	Drawer,
+	IconButton,
+	Toolbar,
+} from "@mui/material";
+import ListItemText from "@mui/material/ListItemText";
+import ListItemButton from "@mui/material/ListItemButton";
+import List from "@mui/material/List";
+import Divider from "@mui/material/Divider";
+import Typography from "@mui/material/Typography";
+import CloseIcon from "@mui/icons-material/Close";
+import Slide from "@mui/material/Slide";
+import { TransitionProps } from "@mui/material/transitions";
+import { handleOpenCloseCart } from "../lib/features/products/cartSlice";
 
 const Cart = () => {
-	const [openCart, setOpenCart] = useState(false);
+	const dispatch = useAppDispatch();
 	const cartProducts = useAppSelector(
 		(state) => state.rootReducer.cart.products
 	);
 	const handleOpenCart = () => {
-		setOpenCart(!openCart);
+		dispatch(handleOpenCloseCart());
 	};
+
 	return (
 		<div className="Cart">
 			<IconButton
@@ -25,7 +43,14 @@ const Cart = () => {
 					🍉
 				</Badge>
 			</IconButton>
-			<Drawer open={openCart} onClose={handleOpenCart} anchor="right"></Drawer>
+			{/* <Drawer
+				className="cartDrawer"
+				open={openCart}
+				onClose={handleOpenCart}
+				anchor="right"
+			>
+
+			</Drawer> */}
 		</div>
 	);
 };
