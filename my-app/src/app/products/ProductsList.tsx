@@ -30,13 +30,7 @@ const ProductsList: React.FC<ProductsListProps> = ({ category }) => {
 						key={p.id}
 					>
 						<div className="productImg d-flex align-items-center justify-content-center">
-							<Image
-								src={p.image}
-								alt="Product img"
-								width={100}
-								height={100}
-								className="img-fluid"
-							/>
+							<Image src={p.image} alt="Product img" width={150} height={150} />
 						</div>
 						<h5 className="title text-center pt-3 m-0">{p.title}</h5>
 						<p className="description text-center text-white-50 py-2 m-0">
