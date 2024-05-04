@@ -5,7 +5,7 @@ interface CategorySwitchProps {
 	setSelectedCategory: Function;
 	selectedCategory?: string | null;
 }
-const CategorySwitch: React.FC<CategorySwitchProps> = ({
+const CategorySelect: React.FC<CategorySwitchProps> = ({
 	setSelectedCategory,
 	selectedCategory,
 }) => {
@@ -40,4 +40,4 @@ const CategorySwitch: React.FC<CategorySwitchProps> = ({
 	);
 };
 
-export default CategorySwitch;
+export default CategorySelect;
