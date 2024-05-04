@@ -8,3 +8,8 @@ export const isLoggedIn = () => {
 	}
 	return false;
 };
+export const logout = () => {
+	if (typeof window !== "undefined" && window.localStorage) {
+		localStorage.removeItem("token");
+	}
+};

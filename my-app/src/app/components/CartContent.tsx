@@ -25,7 +25,7 @@ import {
 	deleteProduct,
 	editQuantity,
 	handleOpenCloseCart,
-} from "../lib/features/products/cartSlice";
+} from "../lib/features/cart/cartSlice";
 import EmptyCartAnimation from "./EmptyCartAnimation";
 import Image from "next/image";
 import AddIcon from "@mui/icons-material/Add";

@@ -20,7 +20,7 @@ import Typography from "@mui/material/Typography";
 import CloseIcon from "@mui/icons-material/Close";
 import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
-import { handleOpenCloseCart } from "../lib/features/products/cartSlice";
+import { handleOpenCloseCart } from "../lib/features/cart/cartSlice";
 
 const Cart = () => {
 	const dispatch = useAppDispatch();

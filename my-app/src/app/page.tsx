@@ -12,14 +12,20 @@ import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS CSS
 import { useEffect } from "react";
-import { redirect, useRouter } from "next/navigation";
-import { isLoggedIn } from "./services/authService";
+import { useRouter } from "next/navigation";
+import { useAppSelector } from "./lib/hooks";
 
 export default function Home() {
 	const router = useRouter();
+	const userToken = useAppSelector((state) => state.rootReducer.user.token);
 	useEffect(() => {
 		AOS.init(); // Initialize AOS library
 	}, []);
+	useEffect(() => {
+		if (userToken) {
+			router.push("/products");
+		}
+	}, [router, userToken]);
 	return (
 		<main className="landingPage">
 			<AppBar position="fixed" className="nav green-bg">

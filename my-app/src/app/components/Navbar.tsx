@@ -12,12 +12,15 @@ import MenuItem from "@mui/material/MenuItem";
 import { useState } from "react";
 import FlagAnimation from "./FlagAnimation";
 import Cart from "./Cart";
+import { useAppDispatch } from "../lib/hooks";
+import { endSession } from "../lib/features/user/userSlice";
 
 const pages = [];
 const settings = ["Profile", "Issues", "Orders", "Logout"];
 
 const Navbar = () => {
 	const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+	const dispatch = useAppDispatch();
 
 	const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
 		setAnchorElUser(event.currentTarget);
@@ -25,6 +28,11 @@ const Navbar = () => {
 
 	const handleCloseUserMenu = () => {
 		setAnchorElUser(null);
+	};
+
+	const handleLogout = () => {
+		dispatch(endSession());
+		handleCloseUserMenu();
 	};
 	return (
 		<AppBar position="fixed">
@@ -64,7 +72,12 @@ const Navbar = () => {
 							onClose={handleCloseUserMenu}
 						>
 							{settings.map((setting) => (
-								<MenuItem key={setting} onClick={handleCloseUserMenu}>
+								<MenuItem
+									key={setting}
+									onClick={
+										setting === "Logout" ? handleLogout : handleCloseUserMenu
+									}
+								>
 									<Typography textAlign="center">{setting}</Typography>
 								</MenuItem>
 							))}

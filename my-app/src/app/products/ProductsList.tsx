@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../lib/hooks";
 import Image from "next/image";
 import { Button, Rating } from "@mui/material";
-import { addProductToCart } from "../lib/features/products/cartSlice";
+import { addProductToCart } from "../lib/features/cart/cartSlice";
 import { Product } from "../lib/features/products/productsSlice";
 interface ProductsListProps {
 	category?: string | null;

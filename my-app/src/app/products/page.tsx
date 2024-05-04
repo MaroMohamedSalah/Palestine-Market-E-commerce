@@ -3,9 +3,8 @@
 import { useEffect, useState } from "react";
 import CelebrationAnimation from "../components/CelebrationAnimation";
 import Navbar from "../components/Navbar";
-import { isLoggedIn } from "../services/authService";
 import { useRouter } from "next/navigation";
-import { useAppDispatch } from "../lib/hooks";
+import { useAppDispatch, useAppSelector } from "../lib/hooks";
 import "./products.css";
 import { initProducts } from "../lib/features/products/productsSlice";
 import ProductsList from "./ProductsList";
@@ -14,15 +13,15 @@ import CategorySelect from "./CategorySelect";
 
 const Products = () => {
 	const dispatch = useAppDispatch();
-	const loggedIn = isLoggedIn();
+	const userToken = useAppSelector((state) => state.rootReducer.user.token);
 	const router = useRouter();
 
 	const [selectedCategory, setSelectedCategory] = useState(null);
 	useEffect(() => {
-		if (!loggedIn) {
+		if (!userToken) {
 			router.push("/login");
 		}
-	}, [loggedIn, router]);
+	}, [userToken, router]);
 
 	useEffect(() => {
 		handleFetchProducts();

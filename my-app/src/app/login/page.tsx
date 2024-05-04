@@ -17,6 +17,8 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import LoadingButton from "@mui/lab/LoadingButton";
 import { useRouter } from "next/navigation";
+import { useAppDispatch } from "../lib/hooks";
+import { startSession } from "../lib/features/user/userSlice";
 
 const Login = () => {
 	const [showPassword, setShowPassword] = useState(false);
@@ -25,6 +27,7 @@ const Login = () => {
 	const [errorMsg, setErrorMsg] = useState("");
 	const [loading, setLoading] = useState(false);
 	const router = useRouter();
+	const dispatch = useAppDispatch();
 
 	const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -56,7 +59,7 @@ const Login = () => {
 				})
 				.then((data) => {
 					if (data.token) {
-						localStorage.setItem("token", data.token);
+						dispatch(startSession(data.token));
 						setErrorMsg("");
 						router.push("/products");
 					} else {
