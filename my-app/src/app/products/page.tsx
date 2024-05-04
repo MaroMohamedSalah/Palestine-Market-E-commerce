@@ -9,8 +9,8 @@ import { useAppDispatch } from "../lib/hooks";
 import "./products.css";
 import { initProducts } from "../lib/features/products/productsSlice";
 import ProductsList from "./ProductsList";
-import CategorySwitch from "./CategorySwitch";
 import CartContent from "../components/CartContent";
+import CategorySwitch from "./CategorySwitch";
 
 const Products = () => {
 	const dispatch = useAppDispatch();
