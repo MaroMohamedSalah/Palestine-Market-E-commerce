@@ -1,3 +1,4 @@
+"use client";
 import { Button, ButtonGroup } from "@mui/material";
 import { useAppSelector } from "../lib/hooks";
 interface CategorySwitchProps {

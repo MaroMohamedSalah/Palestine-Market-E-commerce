@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { useAppDispatch } from "../lib/hooks";
 import "./products.css";
 import { initProducts } from "../lib/features/products/productsSlice";
-// import CategorySwitch from "./CategorySwitch";
+import CategorySwitch from "./CategorySwitch";
 import ProductsList from "./ProductsList";
 import CartContent from "../components/CartContent";
 
@@ -42,10 +42,10 @@ const Products = () => {
 			<CelebrationAnimation />
 			<Navbar />
 			<div className="container">
-				{/* <CategorySwitch
+				<CategorySwitch
 					selectedCategory={selectedCategory}
 					setSelectedCategory={setSelectedCategory}
-				/> */}
+				/>
 				<ProductsList category={selectedCategory} />
 			</div>
 			<CartContent />
