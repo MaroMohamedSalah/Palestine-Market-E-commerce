@@ -136,7 +136,7 @@ const Login = () => {
 							size="large"
 							variant="contained"
 							fullWidth
-							className="red-bg white-color"
+							// className="red-bg white-color"
 							onClick={() => handleLogin()}
 						>
 							Log in
