@@ -1,7 +1,9 @@
 export const isLoggedIn = () => {
-	if (localStorage.getItem("token")) {
-		return true;
-	} else {
-		false;
+	if (window.localStorage) {
+		if (localStorage.getItem("token")) {
+			return true;
+		} else {
+			false;
+		}
 	}
 };
