@@ -3,8 +3,8 @@ export const isLoggedIn = () => {
 		if (localStorage.getItem("token")) {
 			return true;
 		} else {
-			return false; // You missed returning the value here
+			return false;
 		}
 	}
-	return false; // Handle the case when window or localStorage is not available
+	return false;
 };
