@@ -27,8 +27,16 @@ const Products = () => {
 		fetchProducts();
 	}, []);
 
+	// const fetchProducts = () => {
+	// 	fetch("https://fakestoreapi.com/products")
+	// 		.then((res) => res.json())
+	// 		.then((data) => {
+	// 			dispatch(initProducts(data));
+	// 		})
+	// 		.catch((error) => console.error(error));
+	// };
 	const fetchProducts = () => {
-		fetch("https://fakestoreapi.com/products")
+		fetch("http://localhost:8009/products")
 			.then((res) => res.json())
 			.then((data) => {
 				dispatch(initProducts(data));

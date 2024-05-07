@@ -2,17 +2,27 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 // Define the interface for a product
+// export interface Product {
+// 	id: number;
+// 	title: string;
+// 	price: number;
+// 	description: string;
+// 	category: string;
+// 	image: string;
+// 	rating: {
+// 		rate: number;
+// 		count: number;
+// 	};
+// }
 export interface Product {
-	id: number;
-	title: string;
+	productId: number;
+	productName: string;
 	price: number;
 	description: string;
 	category: string;
-	image: string;
-	rating: {
-		rate: number;
-		count: number;
-	};
+	photoUrl: string;
+	rate: number;
+	count: number;
 }
 
 // Define the initial state for products
