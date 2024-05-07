@@ -52,12 +52,13 @@ const Login = () => {
 				}),
 			})
 				.then((res) => {
-					if (res.ok) {
-						return res.json();
-					}
+					// if (res.ok) {
+					// 	return res.json();
+					// }
 					// else {
 					// 	return res.text();
 					// }
+					return res.json();
 				})
 				.then((data) => {
 					if (data.token) {
