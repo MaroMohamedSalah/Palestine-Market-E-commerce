@@ -23,6 +23,7 @@ import { startSession } from "../lib/features/user/userSlice";
 const Login = () => {
 	const [showPassword, setShowPassword] = useState(false);
 	const [userName, setUserName] = useState("");
+	const [mobile, setMobile] = useState("");
 	const [password, setPassword] = useState("");
 	const [errorMsg, setErrorMsg] = useState("");
 	const [loading, setLoading] = useState(false);
@@ -38,15 +39,15 @@ const Login = () => {
 	};
 
 	const handleLogin = () => {
-		if (userName !== "" && password !== "") {
+		if (mobile !== "" && password !== "") {
 			setLoading(true);
-			fetch("https://fakestoreapi.com/auth/login", {
+			fetch("http://localhost:8009/login/customer", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
 				},
 				body: JSON.stringify({
-					username: userName,
+					mobileId: mobile,
 					password: password,
 				}),
 			})
@@ -100,11 +101,11 @@ const Login = () => {
 						<TextField
 							className="d-block mb-3 green-bg"
 							fullWidth
-							id="username"
-							label="Username"
+							id="mobile"
+							label="Mobile"
 							variant="filled"
 							onChange={(e) => {
-								setUserName(e.target.value);
+								setMobile(e.target.value);
 							}}
 						/>
 
