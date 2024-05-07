@@ -54,9 +54,10 @@ const Login = () => {
 				.then((res) => {
 					if (res.ok) {
 						return res.json();
-					} else {
-						return res.text();
 					}
+					// else {
+					// 	return res.text();
+					// }
 				})
 				.then((data) => {
 					if (data.token) {
