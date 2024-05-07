@@ -12,7 +12,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { useState } from "react";
 import FlagAnimation from "./FlagAnimation";
 import Cart from "./Cart";
-import { useAppDispatch } from "../lib/hooks";
+import { useAppDispatch, useAppSelector } from "../lib/hooks";
 import { endSession } from "../lib/features/user/userSlice";
 
 const pages = [];
@@ -21,6 +21,7 @@ const settings = ["Profile", "Issues", "Orders", "Logout"];
 const Navbar = () => {
 	const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 	const dispatch = useAppDispatch();
+	const userToken = useAppSelector((state) => state.rootReducer.user.token);
 
 	const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
 		setAnchorElUser(event.currentTarget);
@@ -31,8 +32,22 @@ const Navbar = () => {
 	};
 
 	const handleLogout = () => {
-		dispatch(endSession());
-		handleCloseUserMenu();
+		fetch("http://localhost:8009/logout/customer", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				token: userToken,
+			}),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+				dispatch(endSession());
+				handleCloseUserMenu();
+			})
+			.catch((err) => console.error(err));
 	};
 	return (
 		<AppBar position="fixed">
