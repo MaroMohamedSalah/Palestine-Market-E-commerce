@@ -64,7 +64,7 @@ const Login = () => {
 						setErrorMsg("");
 						router.push("/products");
 					} else {
-						setErrorMsg(data);
+						setErrorMsg(data.message);
 					}
 				})
 				.catch((error) => {
