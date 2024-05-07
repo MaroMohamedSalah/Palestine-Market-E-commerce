@@ -36,7 +36,12 @@ const Products = () => {
 	// 		.catch((error) => console.error(error));
 	// };
 	const fetchProducts = () => {
-		fetch("http://localhost:8009/products")
+		fetch("http://localhost:8009/products", {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+			},
+		})
 			.then((res) => res.json())
 			.then((data) => {
 				dispatch(initProducts(data));
