@@ -25,7 +25,8 @@ const cartSlice = createSlice({
 			// Check if the product already exists in the cart
 			const existingProductIndex = state.products.findIndex(
 				(product) =>
-					product.productDetails.id === action.payload.productDetails.id
+					product.productDetails.productId ===
+					action.payload.productDetails.productId
 			);
 
 			if (existingProductIndex !== -1) {
@@ -49,7 +50,8 @@ const cartSlice = createSlice({
 		deleteProduct: (state, action: PayloadAction<ProductInCart>) => {
 			state.products = state.products.filter(
 				(product) =>
-					product.productDetails.id !== action.payload.productDetails.id
+					product.productDetails.productId !==
+					action.payload.productDetails.productId
 			);
 		},
 
@@ -59,7 +61,7 @@ const cartSlice = createSlice({
 		) => {
 			const { productId, quantity } = action.payload;
 			const productIndex = state.products.findIndex(
-				(product) => product.productDetails.id === productId
+				(product) => product.productDetails.productId === productId
 			);
 			if (productIndex !== -1) {
 				state.products[productIndex].quantity = quantity;
