@@ -115,12 +115,12 @@ const CartContent = () => {
 									<>
 										<ListItem
 											className="row my-4"
-											key={product.productDetails.id}
+											key={product.productDetails.productId}
 										>
 											<ListItemAvatar className="me-5 col-1">
 												<Image
 													alt="Img image"
-													src={product.productDetails.image}
+													src={product.productDetails.photoUrl}
 													width={100}
 													height={100}
 												/>
@@ -128,7 +128,7 @@ const CartContent = () => {
 											<div className="col d-flex justify-content-start align-items-start flex-column">
 												<div className="d-flex justify-content-between align-items-center w-100 mb-3">
 													<h6 className="productTitle">
-														{product.productDetails.title}
+														{product.productDetails.productName}
 													</h6>
 													<h6 className="productQuantity">
 														<span className="text-black-50">Quantity </span>
@@ -162,7 +162,8 @@ const CartContent = () => {
 																onClick={() =>
 																	dispatch(
 																		editQuantity({
-																			productId: product.productDetails.id,
+																			productId:
+																				product.productDetails.productId,
 																			quantity: product.quantity + 1,
 																		})
 																	)
@@ -180,7 +181,8 @@ const CartContent = () => {
 																	product.quantity > 0 &&
 																	dispatch(
 																		editQuantity({
-																			productId: product.productDetails.id,
+																			productId:
+																				product.productDetails.productId,
 																			quantity: product.quantity - 1,
 																		})
 																	)
