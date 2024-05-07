@@ -13,6 +13,7 @@ const TeamSwiper = () => {
 		{ url: "/assets/team_imgs/Manar_Mostafa.jpg", name: "Manar Mostafa" },
 		{ url: "/assets/team_imgs/Marwan.jpg", name: "Marwan Mohamed" },
 		{ url: "/assets/team_imgs/Nada.jpg", name: "Nada Essam" },
+		{ url: "/assets/team_imgs/Nada.jpg", name: "Nada Essam" },
 	];
 	return (
 		<section className="TeamSwiper py-5">

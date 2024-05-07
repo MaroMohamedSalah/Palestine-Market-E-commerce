@@ -64,7 +64,9 @@ export default function Home() {
 					Boycott!
 				</h1>
 			</div>
+
 			<TeamSwiper />
+
 			<SpeedDial
 				ariaLabel="SpeedDial basic example"
 				sx={{ position: "absolute", bottom: 16, right: 16 }}
