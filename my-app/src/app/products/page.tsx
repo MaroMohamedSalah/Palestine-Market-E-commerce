@@ -38,9 +38,9 @@ const Products = () => {
 	const fetchProducts = () => {
 		fetch("http://localhost:8009/products", {
 			method: "GET",
-			headers: {
-				"Content-Type": "application/json",
-			},
+			// headers: {
+			// 	"Content-Type": "application/json",
+			// },
 		})
 			.then((res) => res.json())
 			.then((data) => {
